@@ -30,11 +30,7 @@ def show_translation():
     selected_word = word_var.get()
     if selected_word in dictionary:
         translations = dictionary[selected_word]
-        result.set(f"Latin: {translations['Latin']}\n"
-                   f"French: {translations['French']}\n"
-                   f"Spanish: {translations['Spanish']}\n"
-                   f"German: {translations['German']}\n"
-                   f"Greek: {translations['Greek']}")
+
     else:
         result.set("Word not found!")
 
