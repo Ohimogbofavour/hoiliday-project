@@ -25,7 +25,11 @@ dictionary = {
     "beauty": {"Latin": "pulchritudo", "French": "beauté", "Spanish": "belleza", "German": "Schönheit", "Greek": "ομορφιά"}
 }
 
-
+# Function to display translations
+def show_translation():
+    selected_word = word_var.get()
+    if selected_word in dictionary:
+        translations = dictionary[selected_word]
         result.set(f"Latin: {translations['Latin']}\n"
                    f"French: {translations['French']}\n"
                    f"Spanish: {translations['Spanish']}\n"
