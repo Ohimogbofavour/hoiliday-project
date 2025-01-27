@@ -28,6 +28,32 @@ hausa_dict = {
     
 }
 
+igala_dict = {
+    "adu": "people",
+    "ote": "house",
+    "k'ondo": "good",
+    "ode": "thank you",
+    "ade": "come",
+    "pioola":"law",
+    "chaaka":"farm",
+    "duu":"tool",
+    "hair":"oji",
+    "nose":"imo",
+    "ana":"in-law",
+    "agbari":"skull",
+    "okoto":"brain",
+    "eju":"eye",
+    "leg":"ere",
+    "nine":"ela",
+    "je":"eat",
+    "okuta":"stone",
+    "efa":"six",
+    "adua":"poor",
+    "eie":"gift",
+    "ekwutee":"plenty",
+    "okoo":"pig"
+
+}
 
 # Create the main window
 window = Tk()
