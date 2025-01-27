@@ -1,56 +1,83 @@
-import tkinter as tk
-from tkinter import ttk
+import tkinter
+from tkinter import messagebox
 
-# Define dictionaries with 20 words in Latin, French, Spanish, German, and Greek
-dictionary = {
-    "apple": {"Latin": "malum", "French": "pomme", "Spanish": "manzana", "German": "Apfel", "Greek": "μήλο"},
-    "book": {"Latin": "liber", "French": "livre", "Spanish": "libro", "German": "Buch", "Greek": "βιβλίο"},
-    "car": {"Latin": "carrus", "French": "voiture", "Spanish": "coche", "German": "Auto", "Greek": "αυτοκίνητο"},
-    "dog": {"Latin": "canis", "French": "chien", "Spanish": "perro", "German": "Hund", "Greek": "σκύλος"},
-    "house": {"Latin": "domus", "French": "maison", "Spanish": "casa", "German": "Haus", "Greek": "σπίτι"},
-    "love": {"Latin": "amor", "French": "amour", "Spanish": "amor", "German": "Liebe", "Greek": "αγάπη"},
-    "school": {"Latin": "schola", "French": "école", "Spanish": "escuela", "German": "Schule", "Greek": "σχολείο"},
-    "friend": {"Latin": "amicus", "French": "ami", "Spanish": "amigo", "German": "Freund", "Greek": "φίλος"},
-    "water": {"Latin": "aqua", "French": "eau", "Spanish": "agua", "German": "Wasser", "Greek": "νερό"},
-    "food": {"Latin": "cibus", "French": "nourriture", "Spanish": "comida", "German": "Essen", "Greek": "τροφή"},
-    "sun": {"Latin": "sol", "French": "soleil", "Spanish": "sol", "German": "Sonne", "Greek": "ήλιος"},
-    "moon": {"Latin": "luna", "French": "lune", "Spanish": "luna", "German": "Mond", "Greek": "φεγγάρι"},
-    "tree": {"Latin": "arbor", "French": "arbre", "Spanish": "árbol", "German": "Baum", "Greek": "δέντρο"},
-    "family": {"Latin": "familia", "French": "famille", "Spanish": "familia", "German": "Familie", "Greek": "οικογένεια"},
-    "music": {"Latin": "musica", "French": "musique", "Spanish": "música", "German": "Musik", "Greek": "μουσική"},
-    "work": {"Latin": "labor", "French": "travail", "Spanish": "trabajo", "German": "Arbeit", "Greek": "εργασία"},
-    "money": {"Latin": "pecunia", "French": "argent", "Spanish": "dinero", "German": "Geld", "Greek": "χρήματα"},
-    "happiness": {"Latin": "felicitas", "French": "bonheur", "Spanish": "felicidad", "German": "Glück", "Greek": "ευτυχία"},
-    "peace": {"Latin": "pax", "French": "paix", "Spanish": "paz", "German": "Frieden", "Greek": "ειρήνη"},
-    "beauty": {"Latin": "pulchritudo", "French": "beauté", "Spanish": "belleza", "German": "Schönheit", "Greek": "ομορφιά"}
+
+# Define the dictionaries
+hausa_dict = {
+    "sannu": "hello",
+    "na gode": "thank you",
+    "ina kwana": "how are you?",
+    "lafiya lau": "fine",
+    "barkada sallama": "goodbye",
+    "karanta":"read",
+    "gida":"home",
+    "wasa":"play",
+    "shiru":"quiet",
+    "kudi":"momey",
+    "babba":"big",
+    "yau":"today",
+    "dare":"night",
+    "maraba":"you are welcome",
+    "ture":"flower",
+    "wawa":"fool",
+    "manta":"forget",
+    "front":"gaba",
+    "fowl":"kaza",
+    "fly":"kuda",
+    "foot":"kafa"
+    
 }
 
-# Function to display translations
-def show_translation():
-    selected_word = word_var.get()
-    if selected_word in dictionary:
-        translations = dictionary[selected_word]
 
+# Create the main window
+window = Tk()
+window.title("Nigerian Language Dictionary")
+
+# Create a label for the language selection
+language_label = Label(window, text="Select Language:")
+language_label.pack()
+
+# Create a dropdown menu for language selection
+selected_language = StringVar(window)
+selected_language.set("Hausa")  # Default language
+language_menu = OptionMenu(window, selected_language, "Hausa", "Yoruba", "Igbo", "Igala", "Efik")
+language_menu.pack()
+
+# Create a label for the word input
+word_label = Label(window, text="Enter Word:")
+word_label.pack()
+
+# Create an entry field for word input
+word_entry = Entry(window)
+word_entry.pack()
+
+# Create a button to search for the word
+search_button = Button(window, text="Search", command=lambda: search_word())
+search_button.pack()
+
+# Create a label to display the meaning
+meaning_label = Label(window, text="")
+meaning_label.pack()
+
+# Function to search for the word
+def search_word():
+    word = word_entry.get()
+    language = selected_language.get()
+
+    if language == "Hausa":
+        meaning = hausa_dict.get(word, "Word not found")
+    elif language == "Yoruba":
+        meaning = yoruba_dict.get(word, "Word not found")
+    elif language == "Igbo":
+        meaning = igbo_dict.get(word, "Word not found")
+    elif language == "Igala":
+        meaning = igala_dict.get(word, "Word not found")
+    elif language == "Efik":
+        meaning = efik_dict.get(word, "Word not found")
     else:
-        result.set("Word not found!")
+        meaning = "Invalid language selected"
 
-# Create the main application window
-root = tk.Tk()
-root.title("Multilingual Dictionary")
+    meaning_label.config(text=f"Meaning: {meaning}")
 
-# UI Elements
-tk.Label(root, text="Select a word:").grid(row=0, column=0, padx=10, pady=10)
-
-word_var = tk.StringVar()
-word_dropdown = ttk.Combobox(root, textvariable=word_var)
-word_dropdown['values'] = list(dictionary.keys())  # Load word choices
-word_dropdown.grid(row=0, column=1, padx=10, pady=10)
-
-btn_translate = tk.Button(root, text="Translate", command=show_translation)
-btn_translate.grid(row=1, column=0, columnspan=2, pady=10)
-
-result = tk.StringVar()
-tk.Label(root, textvariable=result, justify="left", font=("Arial", 12)).grid(row=2, column=0, columnspan=2, padx=10, pady=10)
-
-# Run the GUI application
-root.mainloop()
+# Run the GUI
+window.mainloop()
