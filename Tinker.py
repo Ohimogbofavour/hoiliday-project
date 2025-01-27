@@ -55,6 +55,29 @@ igala_dict = {
 
 }
 
+efik_dict = {
+    "owo": "people",
+    "ufok": "house",
+    "nno": "good",
+    "afiak": "thank you",
+    "kama": "come",
+    "kot":"call",
+    "atwa":"palmwine",
+    "sak":"laugh",
+    "uruk":"rope",
+    "utim":"times",
+    "mbi":"ambush",
+    "awa":"blueness",
+    "utin":"sun",
+    "utib":"creek",
+    "mbo":"seedling",
+    "kap":"carve",
+    "ada":"barren woman",
+    "adan":"jaundice",
+    "akaj":"forest",
+    "afan":"a kind of fish"
+}
+
 # Create the main window
 window = Tk()
 window.title("Nigerian Language Dictionary")
