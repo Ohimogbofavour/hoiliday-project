@@ -77,7 +77,28 @@ efik_dict = {
     "akaj":"forest",
     "afan":"a kind of fish"
 }
-
+igbo_dict = {
+    "ndi": "people",
+    "ụlọ": "house",
+    "kedu": "how",
+    "nọọ": "good",
+    "daalụ": "thank you",
+    "akwa":"cry",
+    "ochi":"laugh",
+    "aja":"sacrfice",
+    "nti":"ear",
+    "anya":"eye",
+    "ntutu isi":"hair",
+    "isi":"head",
+    "imi":"nose",
+    "afa onu":"moustache",
+    "ala aka":"arm",
+    "aka":"hand",
+    "mpisi aka":"finger",
+    "ukwu":"leg",
+    "ikpere":"knee",
+    "obu ukwu":"foot"
+}
 # Create the main window
 window = Tk()
 window.title("Nigerian Language Dictionary")
