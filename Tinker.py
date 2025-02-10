@@ -13,7 +13,7 @@ hausa_dict = {
     "gida":"home",
     "wasa":"play",
     "shiru":"quiet",
-    "kudi":"momey",
+    "kudi":"money",
     "babba":"big",
     "yau":"today",
     "dare":"night",
@@ -99,7 +99,29 @@ igbo_dict = {
     "ikpere":"knee",
     "obu ukwu":"foot"
 }
-# Create the main window
+yoruba_dict = {
+    "ekaaro" : "good morning",
+    "ekule" : "good afternoon",
+    "ekurole" : "good evening",
+    "ekaabo" : "welcome",
+    "bawo ni" : "how are ,you"
+    "daabo" : "goodbye",
+    "joo" : "please",
+    "e se" : "thank you",
+    "beeni" : "yes",
+    "rara" : "no",
+    "ounje" : "food",
+    "omi" : "water",
+    "ife" : "love",
+    "oju" : "eye",
+    "enu" : "mouth",
+    "ese" : "leg",
+    "owo" : "hand",
+    "ile" : "house",
+    "ore" : 'friend",
+    "idunnu" : "happiness"
+}
+: # Create the main window
 window = Tk()
 window.title("Nigerian Language Dictionary")
 
